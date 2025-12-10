@@ -211,96 +211,101 @@
             <!-- Товары тут -->
         </div>
     </section>
+
+
+    <p> <a href="#top">Вернуться к началу</a> </p>
+
+    <div id="contactsandcolleagues" class="graphic-link" data-url="https://www.chitai-gorod.ru/">
+        <img src="img1/chitai-gorod_thumb1.jpg" alt="Читай город">
+    </div>
+
+    <div class="graphic-link" data-url="https://design.hse.ru/">
+        <img src="hse_logo.png" alt="ХСЕ лого">
+    </div>
+
+    <script>
+        const productsData = [
+            { id: 1, title: "Журнал Смешарики", price: "250 ₽", image: "1509.jpg" },
+            { id: 2, title: "Журнал Эль герл", price: "300 ₽", image: "1446024428_926ee9eaa013f8dea835c890b1f02326.jpg" },
+            { id: 3, title: "Журнал  Винкс", price: "280 ₽", image: "3F1_2007.jpg" },
+            { id: 4, title: "Журнал Чародейки", price: "320 ₽", image: "0000001.jpg" },
+            { id: 5, title: "Журнал Все звезды", price: "270 ₽", image: "file_91255d93-cdbc-4fa9-a226-514d8b850cce_EXTRA_LARGE.jpg" },
+            { id: 6, title: "Журнал Пикси", price: "350 ₽", image: "26650658.jpg" }
+        ];
+
+
+        function createProductItem(product) {
+            const figure = document.createElement('figure');
+            figure.style.cssText = 'margin: 10px; text-align: center; display: inline-block;';
+
+            // product-container div
+            const containerDiv = document.createElement('div');
+            containerDiv.className = 'product-container';
+
+            const img = document.createElement('img');
+            img.src = product.image;
+            img.alt = product.title;
+
+            containerDiv.appendChild(img);
+
+            // Создаем figcaption с указанными стилями
+            const figcaption = document.createElement('figcaption');
+            figcaption.textContent = product.title; // Только название журнала
+
+            // Применяем стили как в CSS
+            figcaption.style.marginTop = '9px';
+
+            figcaption.style.fontFamily = 'Verdana, Geneva, Tahoma, sans-serif';
+            figcaption.style.color = '#699bff';
+            figcaption.style.fontSize = '14px';
+
+            // Создаем отдельный элемент для цены
+            const priceDiv = document.createElement('div');
+            priceDiv.textContent = product.price;
+            priceDiv.style.cssText = 'color: #2a9bff; font-weight: bold; margin-top: 5px; font-size: 16px;';
+
+            // Кнопка
+            const button = document.createElement('button');
+            button.textContent = 'Купить';
+            button.style.cssText = 'background-color: #2a9bff; color: white; border: none; padding: 8px 20px; border-radius: 5px; cursor: pointer; margin-top: 10px; font-size: 14px;';
+            button.onclick = function () {
+                addToCart(product.id);
+            };
+
+            figure.appendChild(containerDiv);
+            figure.appendChild(figcaption);
+            figure.appendChild(button);
+
+            return figure;
+        }
+
+        function renderProducts() {
+            const container = document.getElementById('productsContainer');
+            container.innerHTML = '';
+
+            productsData.forEach(product => {
+                container.appendChild(createProductItem(product));
+            });
+        }
+
+        // Инициализация
+        document.addEventListener('DOMContentLoaded', renderProducts);
+
+        const links = document.querySelectorAll('.graphic-link');
+        links.forEach(link => {
+            link.addEventListener('click', function () {
+                const url = this.getAttribute('data-url');
+                if (url) {
+                    window.open(url, '_blank');
+                }
+            });
+        });
+    </script>
+
+    <div class="head2" id=contactsandcolleagues class="head2">тел: +89990005522</div>
 </body>
 
-<p> <a href="#top">Вернуться к началу</a> </p>
-
-<div id="contactsandcolleagues" class="graphic-link" data-url="https://www.chitai-gorod.ru/">
-    <img src="chitai-gorod_thumb1.jpg" alt="Читай город">
-</div>
-
-<div class="graphic-link" data-url="https://design.hse.ru/">
-    <img src="hse_logo.png" alt="ХСЕ лого">
-</div>
-
-<script>
-    const productsData = [
-        { id: 1, title: "Журнал Смешарики", price: "250 ₽", image: "1509.jpg" },
-        { id: 2, title: "Журнал Эль герл", price: "300 ₽", image: "1446024428_926ee9eaa013f8dea835c890b1f02326.jpg" },
-        { id: 3, title: "Журнал  Винкс", price: "280 ₽", image: "3F1_2007.jpg" },
-        { id: 4, title: "Журнал Чародейки", price: "320 ₽", image: "0000001.jpg" },
-        { id: 5, title: "Журнал Все звезды", price: "270 ₽", image: "file_91255d93-cdbc-4fa9-a226-514d8b850cce_EXTRA_LARGE.jpg" },
-        { id: 6, title: "Журнал Пикси", price: "350 ₽", image: "26650658.jpg" }
-    ];
-
-
-    function createProductItem(product) {
-        const figure = document.createElement('figure');
-        figure.style.cssText = 'margin: 10px; text-align: center; display: inline-block;';
-
-        // product-container div
-        const containerDiv = document.createElement('div');
-        containerDiv.className = 'product-container';
-
-        const img = document.createElement('img');
-        img.src = product.image;
-        img.alt = product.title;
-
-        containerDiv.appendChild(img);
-
-        // Создаем figcaption
-        const figcaption = document.createElement('figcaption');
-        figcaption.textContent = product.title; // Только название журнала
-
-        // Применяем стили как в CSS
-        figcaption.style.marginTop = '9px';
-
-        figcaption.style.fontFamily = 'Verdana, Geneva, Tahoma, sans-serif';
-        figcaption.style.color = '#699bff';
-        figcaption.style.fontSize = '14px';
-
-        // Создаем отдельный элемент для цены
-        const priceDiv = document.createElement('div');
-        priceDiv.textContent = product.price;
-        priceDiv.style.cssText = 'color: #2a9bff; font-weight: bold; margin-top: 5px; font-size: 16px;';
-
-        // Кнопка
-        const button = document.createElement('button');
-        button.textContent = 'Купить';
-        button.style.cssText = 'background-color: #2a9bff; color: white; border: none; padding: 8px 20px; border-radius: 5px; cursor: pointer; margin-top: 10px; font-size: 14px;';
-        button.onclick = function () {
-            addToCart(product.id);
-        };
-
-        figure.appendChild(containerDiv);
-        figure.appendChild(figcaption);
-        figure.appendChild(button);
-
-        return figure;
-    }
-
-    function renderProducts() {
-        const container = document.getElementById('productsContainer');
-        container.innerHTML = '';
-
-        productsData.forEach(product => {
-            container.appendChild(createProductItem(product));
-        });
-    }
-
-    // Инициализация
-    document.addEventListener('DOMContentLoaded', renderProducts);
-
-    const links = document.querySelectorAll('.graphic-link');
-    links.forEach(link => {
-        link.addEventListener('click', function () {
-            const url = this.getAttribute('data-url');
-            if (url) {
-                window.open(url, '_blank');
-            }
-        });
-    });
-</script>
+</html>
 
 <div class="head2" id=contactsandcolleagues class="head2">тел: +89990005522</div>
 
