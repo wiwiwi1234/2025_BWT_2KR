@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>comicsshop</title>
+
+    <style>
+        body {
+            text-align: center;
+        }
+
+        /* ===== СТИЛИ HEADER ===== */
+        .head1 {
+            background-color: #2a9bff;
+            padding: 20x 40px;
+            text-align: center;
+            font-size: 65px;
+            font-family: Impact, sans-serif;
+            color: aliceblue;
+        }
+
+        .head2 {
+            background-color: #d4ebff;
+            padding: 80x 80px;
+            text-align: center;
+            font-size: 35px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(0, 0, 0);
+        }
+
+
+        /* ===== СТИЛИ НАВИГАЦИИ ===== */
+        .navigation {
+            background-color: #e0e277;
+            padding: 5px;
+            text-align: center;
+            font-size: 25px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: #333;
+            padding: 5px 5px;
+            border-radius: 5px;
+        }
+
+        .nav-item:hover {
+            color: white;
+        }
+
+        .nav-item.current {
+            background-color: rgba(193, 183, 96, 0.382);
+            border-radius: 5px;
+            padding: 0px 10px;
+        }
+
+        /* ===== ЧИТ ГОРОД И ХСЕ ===== */
+
+        .graphic-link {
+            display: inline-block;
+            margin: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+        }
+
+        .graphic-link:hover img {
+            filter: invert(1);
+        }
+
+        .graphic-link img {
+            width: 300px;
+            height: 150px;
+            object-fit: cover;
+            transition: 0.3s;
+            display: block;
+        }
+
+
+        /* ===== Картинка ===== */
+        figcaption {
+            margin-top: 9px;
+            font-style: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #2a9bff;
+            font-size: 14px;
+        }
+
+        .imgnews {
+            width: 50%;
+            margin: 0;
+            border-radius: 5px;
+            padding: 0px 10px;
+        }
+
+        /* ===== ФОРМА ===== */
+
+        .formaname {
+            padding: 20x 40px;
+            text-align: center;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(85, 174, 251);
+        }
+
+        .forma {
+            padding: 20x 40px;
+            text-align: center;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .order-form {
+            background: rgb(255, 255, 255);
+            border-radius: 20px;
+            padding: 20px;
+            border: 2px solid #b8ba43;
+            width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+
+</head>
+<header>
+    <div class="head1">
+        <align="center">Киоск журналов</align>
+    </div>
+    <div class="head2">Прямиком из детства!</div>
+
+    <nav class="navigation">
+        <ul class="nav-list">
+            <li class="nav-item" onclick="goToPage('index.html')">Главная</li>
+            <li class="nav-item" onclick="goToPage('news.html')">Новости</li>
+            <li class="nav-item current" onclick="goToPage('orders.html')">Заказы</li>
+        </ul>
+    </nav>
+
+    <script>
+        // Функция для перехода на другую страницу
+        function goToPage(pageUrl) {
+            // Переходим на указанную страницу
+            window.location.href = pageUrl;
+        }
+    </script>
+
+</header>
+
+<body>
+    <p>
+        <a href="#otziv">Оставить отзыв</a>
+        <a href="#contactsandcolleagues">Наши контанты и коллеги</a>
+    </p>
+
+    <div class="order-form fade-in">
+        <!--<form action="../../cgi-bin/form_action.py" method='get' target='_self'>-->
+        <!--<form action="http://185.182.111.214:7628/cgi-bin/form_action.py" method='get' target='_self'>-->
+        <form action="https://www.bing.com/search?" id="UserEnter" name="UserEnter" target="_blank">
+
+            <input type="hidden" name="q" value="search"></p>
+
+            <p class="formaname">Фамилия: <input class="forma" type="Text" type class="forma" name="last_name" size=20>
+            </p>
+            <p class="formaname">Имя: <input class="forma" type="Text" name="last_name" size=20></p>
+            <p class="formaname">Кол-во товаров <input class="forma" type="Number" name="last_name" size=20 value="+7">
+            </p>
+            <p class="formaname">Электронная почта: <input class="forma" type="Text" name="last_name" size=20></p>
+            <p class="formaname">Подписаться на рассылку?
+                <input class="forma" type="Radio" name="place">Да
+                <input class="forma" type="Radio" name="place">Нет
+            </p>
+            <p class="formaname"> Полный адрес:
+                <br>
+                <TEXTAREA cols=80 rows=4 name="textarea"></TEXTAREA>
+            </p>
+
+            <p class="formaname">Тип доставки
+                <input class="forma" type="Radio" name="place"> Стандартная
+                <input class="forma" type="Radio" name="place"> Экспресс-доставка
+            </p>
+
+            <input type="hidden" name="function" value="page">
+            <input type="hidden" name="page_id" value="3">
+
+            <input type="Reset" name="Reset" value="Очистить форму">
+            <input type="Submit" name="submit" value="Отправить">
+        </form>
+    </div>
+
+    <figure>
+            <img style=imgnews src="../img1/otziv.jpg" alt="Отзыв" title="Отзыв">
+        <figcaption>Оставьте нам отзыв!</figcaption>
+    </figure>
+
+    <div class="order-form fade-in">
+        <!--<form action="../../cgi-bin/form_action.py" method='get' target='_self'>-->
+        <!--<form action="http://185.182.111.214:7628/cgi-bin/form_action.py" method='get' target='_self'>-->
+        <form action="https://www.bing.com/search?" id="UserEnter" name="UserEnter" target="_blank">
+            <input type="hidden" name="q" value="search"></p>
+
+            <p id="otziv" class="formaname">Имя: <input class="forma" type="Text" name="last_name" size=20></p>
+            <p class="formaname">Фамилия: <input class="forma" type="text" name="password" size=9></p>
+            <p class="formaname">Дата покупки: <input class="forma" type="date" name="user_date"></p>
+            <p class="formaname">Оцените качество продукта от 1 до 5
+                <select name="">
+                    <OPTION value="1">1</OPTION>
+                    <OPTION value="2">2</OPTION>
+                    <OPTION value="3">3</OPTION>
+                    <OPTION value="4">4</OPTION>
+                    <OPTION value="5">5</OPTION>
+                </select>
+            </p>
+
+            <p class="formaname">Возникали ли проблемы с заказаом:
+                <input class="forma" type="Radio" name="place" value="Yes">Да
+                <input class="forma" type="Radio" name="place" value="No" checked>Нет
+            </p>
+
+            <p class="formaname">С чем были связаны проблемы (если они были)
+                <select name="languages">
+                    <OPTION value="Доставка">Доставка</OPTION>
+                    <OPTION value="Упаковка">Упаковка</OPTION>
+                    <OPTION value="Продукт с браком">Продукт с браком</OPTION>
+                    <OPTION value="Не работает сайт">Не работает сайт</OPTION>
+                    <OPTION value="Ошибки сотрудников">Ошибки сотрудников</OPTION>
+                    <OPTION value="кр1">кр1</OPTION>
+                </select>
+            </p>
+
+            <p class="formaname">Какие сотрудники смогли помочь вам?
+                <input class="forma" type="Checkbox" name="experience" value="10" checked>Сотрудник A
+                <input class="forma" type="Checkbox" name="experience" value="20" checked>Сотрудник B
+                <input class="forma" type="Checkbox" name="experience" value="30" checked>Сотрудник C
+            </p>
+
+
+            <p class="formaname"> Поле для расширенного комментария (необязательно):
+                <br>
+                <TEXTAREA cols=80 rows=4 name="textarea">Для заметок</TEXTAREA>
+            </p>
+
+            <p class="formaname">Оставьте номер для связи (необязательно): <input class="forma" type="Number"
+                    name="telephone" size=20 value="0"></p>
+
+            <input type="Reset" name="Reset" value="Обновить">
+            <input type="Submit" name="submit" value="Отправить">
+
+            <input type="hidden" name="function" value="page">
+            <input type="hidden" name="page_id" value="3">
+
+        </form>
+    </div>
+
+
+    <div id="contactsandcolleagues"class=" graphic-link" onclick="openLink('https://www.chitai-gorod.ru/')">
+        <img src="../img1/chitai-gorod_thumb1.jpg" alt="Читай город">
+    </div>
+
+    <div class="graphic-link" onclick="openLink('https://design.hse.ru/')">
+        <img src="../img1/hse_logo.png" alt="ХСЕ лого">
+    </div>
+
+
+    <script>
+        // Находим все графические ссылки
+        const links = document.querySelectorAll('.graphic-link');
+        // Добавляем обработчик клика для каждой
+        links.forEach(link => {
+            link.addEventListener('click', function () {
+                // Получаем URL из data-атрибута
+                const url = this.getAttribute('data-url');
+                // Открываем в новой вкладке
+                window.open(url, '_blank');
+            });
+        });
+    </script>
+</body>
+
+<p> <a href="#top">Вернуться к началу</a> </p>
+<div id=contact class="head2">тел: +89990005522</div>
+
+</html>
