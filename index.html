@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>magazinessshop</title>
+
+    <style>
+        body {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            min-width: 320px;
+        }
+
+        /* ===== СТИЛИ HEADER ===== */
+        .head1 {
+            background-color: #2a9bff;
+            padding: 20x 40px;
+            text-align: center;
+            font-size: 2.5rem;
+            font-family: Impact, sans-serif;
+            color: aliceblue;
+        }
+
+        .head2 {
+            background-color: #d4ebff;
+            padding: 80x 80px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(0, 0, 0);
+        }
+
+
+        /* ===== СТИЛИ НАВИГАЦИИ ===== */
+        .navigation {
+            background-color: #e0e277;
+            padding: 5px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: #333;
+            padding: 5px 5px;
+            border-radius: 5px;
+        }
+
+        .nav-item:hover {
+            color: white;
+        }
+
+        .nav-item.current {
+            background-color: rgba(193, 183, 96, 0.382);
+            border-radius: 5px;
+            padding: 0px 10px;
+        }
+
+
+        /* ===== ОСН КОНТЕНТ ===== */
+
+        .product-container {
+            background-color: #699bff;
+            padding: 100x 100px;
+            text-align: center;
+            font-size: 25px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(136, 192, 255);
+            max-width: 300px;
+            width: 300px;
+            height: 400px;
+            padding: 2px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+
+            margin: 0 auto;
+        }
+
+        .product-container img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        figcaption {
+            margin-top: 9px;
+            font-style: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif color: #699bff;
+            font-size: 14px;
+        }
+
+        /* ===== ЧИТ ГОРОД И ХСЕ ===== */
+
+        .graphic-link {
+            display: inline-block;
+            margin: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+
+        }
+
+        .graphic-link:hover img {
+            filter: invert(1);
+        }
+
+        .graphic-link img {
+            width: 300px;
+            height: 150px;
+            object-fit: cover;
+            transition: 0.3s;
+            display: block;
+        }
+
+        /* Планшеты (ширина до 1024px) */
+        @media (max-width: 1024px) {
+            .head1 {
+                font-size: 2rem;
+                padding: 12px 15px;
+            }
+
+            .head2 {
+                font-size: 1.3rem;
+                padding: 15px;
+            }
+
+            .nav-list {
+                gap: 20px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 15px;
+                padding: 15px;
+            }
+        }
+
+        /* Маленькие смартфоны (ширина до 480px) */
+        @media (max-width: 480px) {
+            .head1 {
+                font-size: 1.5rem;
+            }
+
+            .head2 {
+                font-size: 1rem;
+            }
+
+            .product-container img {
+                height: 100%;
+            }
+
+            .buy-button {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <div class="head1">
+            <align="center">Киоск журналов</align>
+        </div>
+        <div class="head2">Прямиком из детства!</div>
+
+        <nav class="navigation">
+            <ul class="nav-list">
+                <li class="nav-item current" onclick="goToPage('index.html')">Главная</li>
+                <li class="nav-item" onclick="goToPage('news.html')">Новости</li>
+                <li class="nav-item" onclick="goToPage('orders.html')">Заказы</li>
+            </ul>
+        </nav>
+
+        <script>
+            // Функция для перехода на другую страницу
+            function goToPage(pageUrl) {
+                // Переходим на указанную страницу
+                window.location.href = pageUrl;
+            }
+        </script>
+    </header>
+
+    <p>
+        <a href="#contactsandcolleagues">Наши контанты и коллеги</a>
+        <a href="#catalog">Каталог</a>
+    </p>
+
+    <section id="catalog" style="text-align: center; margin: 30px 0;">
+        <div id="productsContainer"
+            style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px;">
+            <!-- Товары тут -->
+        </div>
+    </section>
+</body>
+
+<p> <a href="#top">Вернуться к началу</a> </p>
+
+<div id="contactsandcolleagues" class="graphic-link" data-url="https://www.chitai-gorod.ru/">
+    <img src="../img1/chitai-gorod_thumb1.jpg" alt="Читай город">
+</div>
+
+<div class="graphic-link" data-url="https://design.hse.ru/">
+    <img src="../img1/hse_logo.png" alt="ХСЕ лого">
+</div>
+
+<script>
+    const productsData = [
+        { id: 1, title: "Журнал Смешарики", price: "250 ₽", image: "../img1/1509.jpg" },
+        { id: 2, title: "Журнал Эль герл", price: "300 ₽", image: "../img1/1446024428_926ee9eaa013f8dea835c890b1f02326.jpg" },
+        { id: 3, title: "Журнал  Винкс", price: "280 ₽", image: "../img1/3F1_2007.jpg" },
+        { id: 4, title: "Журнал Чародейки", price: "320 ₽", image: "../img1/0000001.jpg" },
+        { id: 5, title: "Журнал Все звезды", price: "270 ₽", image: "../img1/file_91255d93-cdbc-4fa9-a226-514d8b850cce_EXTRA_LARGE.jpg" },
+        { id: 6, title: "Журнал Пикси", price: "350 ₽", image: "../img1/26650658.jpg" }
+    ];
+
+
+    function createProductItem(product) {
+        const figure = document.createElement('figure');
+        figure.style.cssText = 'margin: 10px; text-align: center; display: inline-block;';
+
+        // product-container div
+        const containerDiv = document.createElement('div');
+        containerDiv.className = 'product-container';
+
+        const img = document.createElement('img');
+        img.src = product.image;
+        img.alt = product.title;
+
+        containerDiv.appendChild(img);
+
+        // Создаем figcaption с указанными стилями
+        const figcaption = document.createElement('figcaption');
+        figcaption.textContent = product.title; // Только название журнала
+
+        // Применяем стили как в CSS
+        figcaption.style.marginTop = '9px';
+
+        figcaption.style.fontFamily = 'Verdana, Geneva, Tahoma, sans-serif';
+        figcaption.style.color = '#699bff';
+        figcaption.style.fontSize = '14px';
+
+        // Создаем отдельный элемент для цены
+        const priceDiv = document.createElement('div');
+        priceDiv.textContent = product.price;
+        priceDiv.style.cssText = 'color: #2a9bff; font-weight: bold; margin-top: 5px; font-size: 16px;';
+
+        // Кнопка
+        const button = document.createElement('button');
+        button.textContent = 'Купить';
+        button.style.cssText = 'background-color: #2a9bff; color: white; border: none; padding: 8px 20px; border-radius: 5px; cursor: pointer; margin-top: 10px; font-size: 14px;';
+        button.onclick = function () {
+            addToCart(product.id);
+        };
+
+        figure.appendChild(containerDiv);
+        figure.appendChild(figcaption);
+        figure.appendChild(button);
+
+        return figure;
+    }
+
+    function renderProducts() {
+        const container = document.getElementById('productsContainer');
+        container.innerHTML = '';
+
+        productsData.forEach(product => {
+            container.appendChild(createProductItem(product));
+        });
+    }
+
+    // Инициализация
+    document.addEventListener('DOMContentLoaded', renderProducts);
+
+    const links = document.querySelectorAll('.graphic-link');
+    links.forEach(link => {
+        link.addEventListener('click', function () {
+            const url = this.getAttribute('data-url');
+            if (url) {
+                window.open(url, '_blank');
+            }
+        });
+    });
+</script>
+
+<div class="head2" id=contactsandcolleagues class="head2">тел: +89990005522</div>
+
+</html>
