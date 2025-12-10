@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>magazinessshop</title>
+
+    <style>
+        body {
+            text-align: center;
+        }
+
+        /* ===== КОНТЕНТ ===== */
+        figcaption {
+            margin-top: 9px;
+            font-style: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #2a9bff;
+            font-size: 14px;
+        }
+
+        .imgnews {
+            width: 50%;
+            margin: 0;
+            border-radius: 5px;
+            padding: 0px 10px;
+        }
+
+
+        /* ===== СТИЛИ HEADER ===== */
+        .head1 {
+            background-color: #2a9bff;
+            padding: 20x 40px;
+            text-align: center;
+            font-size: 65px;
+            font-family: Impact, sans-serif;
+            color: aliceblue;
+        }
+
+        .head2 {
+            background-color: #d4ebff;
+            padding: 80x 80px;
+            text-align: center;
+            font-size: 35px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(0, 0, 0);
+        }
+
+
+        /* ===== СТИЛИ НАВИГАЦИИ ===== */
+        .navigation {
+            background-color: #e0e277;
+            padding: 5px;
+            text-align: center;
+            font-size: 25px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: #333;
+            padding: 5px 5px;
+            border-radius: 5px;
+        }
+
+        .nav-item:hover {
+            color: white;
+        }
+
+        .nav-item.current {
+            background-color: rgba(193, 183, 96, 0.382);
+            border-radius: 5px;
+            padding: 0px 10px;
+        }
+
+
+        /* ===== ЧИТ ГОРОД И ХСЕ ===== */
+
+        .graphic-link {
+            display: inline-block;
+            margin: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+        }
+
+        .graphic-link:hover img {
+            filter: invert(1);
+        }
+
+        .graphic-link img {
+            width: 300px;
+            height: 150px;
+            object-fit: cover;
+            transition: 0.3s;
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <div class="head1">
+            <align="center">Киоск журналов</align>
+        </div>
+        <div class="head2">Прямиком из детства!</div>
+
+        <nav class="navigation">
+            <ul class="nav-list">
+                <li class="nav-item" onclick="goToPage('index.html')">Главная</li>
+                <li class="nav-item current" onclick="goToPage('news.html')">Новости</li>
+                <li class="nav-item" onclick="goToPage('orders.html')">Заказы</li>
+            </ul>
+        </nav>
+
+        <script>
+            // Функция для перехода на другую страницу
+            function goToPage(pageUrl) {
+                // Переходим на указанную страницу
+                window.location.href = pageUrl;
+            }
+        </script>
+    </header>
+
+    <p>
+        <a href="#new">Спойлер</a>
+        <a href="#japan">Новое сотрудничество</a>
+    </p>
+
+    <figure>
+        <a href="../img1/Untitled-1.png" target="_blank">
+            <img id="new" style=imgnews src="../img1/Untitled-1.png " alt="спойлер" title="спойлер">
+        </a>
+        <figcaption>Спойлер к пополнению ассортимента</figcaption>
+    </figure>
+
+    <figure>
+        <a href="../img1/cb2d353943d98cb2aa3731be3218dbee.jpg" target="_blank">
+            <img id="japan" src="../img1/cb2d353943d98cb2aa3731be3218dbee.jpg" alt="спойлер" title="спойлер">
+        </a>
+        <figcaption>Мы начинаем новое сотрудничество с японским издательством</figcaption>
+    </figure>
+
+
+    <div class="graphic-link" onclick="openLink('https://www.chitai-gorod.ru/')">
+        <img src="../img1/chitai-gorod_thumb1.jpg" alt="Читай город">
+    </div>
+
+    <div class="graphic-link" onclick="openLink('https://design.hse.ru/')">
+        <img src="../img1/hse_logo.png" alt="ХСЕ лого">
+    </div>
+
+    <script>
+        // Находим все графические ссылки
+        const links = document.querySelectorAll('.graphic-link');
+
+        // Добавляем обработчик клика для каждой
+        links.forEach(link => {
+            link.addEventListener('click', function () {
+                // Получаем URL из data-атрибута
+                const url = this.getAttribute('data-url');
+                // Открываем в новой вкладке
+                window.open(url, '_blank');
+            });
+        });
+    </script>
+
+</body>
+
+<p> <a href="#top">Вернуться к началу</a> </p>
+<div id=contact class="head2">тел: +89990005522</div>
+
+</html>
